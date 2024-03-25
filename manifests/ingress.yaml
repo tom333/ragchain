@@ -15,9 +15,11 @@ spec:
         - path: /
           pathType: Prefix
           backend:
-            name: ragchain
-            port:
-              number: 8000
+            service:
+              name: ragchain
+              port:
+                number: 8000
+
   tls:
     - secretName: ragchain-tls
       hosts:
