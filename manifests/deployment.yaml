@@ -19,3 +19,7 @@ spec:
         - name: http
           containerPort: 11434
           protocol: TCP
+    lifecycle:
+      postStart:
+        exec:
+          command: [ "/bin/sh", "-c", "{{- printf "echo %s | xargs -n1 /bin/ollama pull llama2" ]
