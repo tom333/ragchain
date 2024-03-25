@@ -5,16 +5,22 @@ from langchain.schema.runnable import Runnable
 from langchain.schema.runnable.config import RunnableConfig
 
 import chainlit as cl
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+OLLAMA_HOST = os.environ["OLLAMA_HOST"]
+print("ollama host %s " % OLLAMA_HOST)
 
 
 @cl.on_chat_start
 async def on_chat_start():
-    model = Ollama(model="llama2")
+    model = Ollama(model="llama2:7b", base_url=OLLAMA_HOST)
     prompt = ChatPromptTemplate.from_messages(
         [
             (
                 "system",
-                "Tu est un assistant personel qui aime les blagues",
+                "Tu est un assistant personel qui aime les blagues et qui ne répond qu'en français",
             ),
             ("human", "{question}"),
         ]
