@@ -19,6 +19,8 @@ kind: Service
 metadata:
   name: ragchain
   namespace: datalab
+  labels:
+    name: ragchain
 spec:
   type: ClusterIP
   selector:
@@ -26,5 +28,5 @@ spec:
   ports:
   - port: 8000
     name: http
-    targetPort: http
+    targetPort: 8000
     protocol: TCP
