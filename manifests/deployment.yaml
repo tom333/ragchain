@@ -22,4 +22,15 @@ spec:
         lifecycle:
           postStart:
             exec:
-              command: [ "/bin/sh", "-c", "/bin/ollama pull llama2" ]
+              command: [ "/bin/sh", "-c", "/bin/ollama pull llama2:7b" ]
+        volumeMounts:
+        - mountPath: /root/.ollama
+          name: data
+        - mountPath: /dev/shm
+          name: shm
+        
+
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: ragchain-pvc
