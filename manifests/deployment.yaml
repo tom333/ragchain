@@ -30,3 +30,28 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: ragchain-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ragchain
+  namespace: datalab
+spec:
+  selector:
+    matchLabels:
+      name: ragchain
+  template:
+    metadata:
+      labels:
+        name: ragchain
+    spec:
+      containers:
+      - name: ragchain
+        image: ghcr.io/tom333/ragchain:main
+        ports:
+        - name: http
+          containerPort: 8000
+          protocol: TCP
+        env:
+        - name: OLLAMA_HOST
+          value: http://ollama.datalab.svc.cluster.local:11434
