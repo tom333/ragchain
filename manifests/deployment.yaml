@@ -26,10 +26,6 @@ spec:
         volumeMounts:
         - mountPath: /root/.ollama
           name: data
-        - mountPath: /dev/shm
-          name: shm
-        
-
       volumes:
       - name: data
         persistentVolumeClaim:
