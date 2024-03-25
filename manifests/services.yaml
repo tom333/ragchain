@@ -13,3 +13,18 @@ spec:
     targetPort: http
     protocol: TCP
 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ragchain
+  namespace: datalab
+spec:
+  type: ClusterIP
+  selector:
+    name: ragchain
+  ports:
+  - port: 8000
+    name: http
+    targetPort: http
+    protocol: TCP
