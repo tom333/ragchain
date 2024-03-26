@@ -3,3 +3,4 @@ venv
 .chainlit
 __pycache__
 chainlit.md
+data/**
