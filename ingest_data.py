@@ -66,5 +66,6 @@ vectordb = Qdrant.from_documents(
     FastEmbedEmbeddings(),
     url=QDRANT_HOST,
     force_recreate=True,
+    collection_name="data.gouv.nc",
 )
 
