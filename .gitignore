@@ -4,3 +4,4 @@ venv
 __pycache__
 chainlit.md
 data/**
+.files

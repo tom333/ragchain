@@ -1,5 +1,7 @@
 langchain
 chainlit
+langchain-community
 
 python-dotenv
 qdrant-client[fastembed]
+pypdf
