@@ -24,3 +24,28 @@ spec:
     - secretName: ragchain-tls
       hosts:
         - chat.tgu.ovh
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: ollama
+  namespace: datalab
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  rules:
+    - host: ollama.tgu.ovh
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: ollama
+              port:
+                number: 11434
+
+  tls:
+    - secretName: ollama-tls
+      hosts:
+        - ollama.tgu.ovh
