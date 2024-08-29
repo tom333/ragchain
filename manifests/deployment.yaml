@@ -55,3 +55,5 @@ spec:
         env:
         - name: OLLAMA_HOST
           value: http://ollama.datalab.svc.cluster.local:11434
+        - name: QDRANT_HOST
+          value: http://qdrant.datalab.svc.cluster.local:6333
