@@ -22,7 +22,7 @@ spec:
         lifecycle:
           postStart:
             exec:
-              command: [ "/bin/sh", "-c", "/bin/ollama pull llama2:7b" ]
+              command: [ "/bin/sh", "-c", "/bin/ollama pull gemma2:2b" ]
         volumeMounts:
         - mountPath: /root/.ollama
           name: data
